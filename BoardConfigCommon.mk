@@ -25,7 +25,6 @@
 
 # Default value, if not overridden else where.
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/asus/grouper/bluetooth
- 
 
 TARGET_BOARD_PLATFORM := tegra3
 TARGET_TEGRA_VERSION := t30
@@ -55,7 +54,15 @@ WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/bcmdhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_AP      := "/vendor/firmware/fw_bcmdhd_apsta.bin"
 
+#XPERIENCE
+ARCH_ARM_HIGH_OPTIMIZATION := true 
+
+## Odex by xperience
+WITH_DEXPREOPT := true 
+
+
 TARGET_BOOTLOADER_BOARD_NAME := grouper
+TARGET_NO_BOOTLOADER := true
 
 BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_ALSA_AUDIO := false
@@ -79,24 +86,49 @@ NEED_WORKAROUND_CORTEX_A9_745320 := true
 
 BOARD_USES_GROUPER_MODULES := true
 
+# Required for CWM
+BOARD_HAS_NO_SELECT_BUTTON := true
+
+TARGET_KERNEL_SOURCE := kernel/asus/grouper
+TARGET_KERNEL_CONFIG := cyanogenmod_grouper_defconfig
+
 
 BOARD_SEPOLICY_DIRS += \
-  device/asus/grouper/sepolicy
+	device/asus/grouper/sepolicy
 
 BOARD_SEPOLICY_UNION += \
-  file_contexts \
-  genfs_contexts \
-  app.te \
-  btmacreader.te \
-  device.te \
-  drmserver.te \
-  file.te \
-  gpsd.te \
-  init_shell.te \
-  keystore.te \
-  mediaserver.te \
-  rild.te \
-  sensors_config.te \
-  surfaceflinger.te \
-  system.te \
-  zygote.te 
+	file_contexts \
+	genfs_contexts \
+	app.te \
+	btmacreader.te \
+	device.te \
+	drmserver.te \
+	file.te \
+	gpsd.te \
+	init_shell.te \
+	keystore.te \
+	mediaserver.te \
+	rild.te \
+	sensors_config.te \
+	surfaceflinger.te \
+	system.te \
+	zygote.te
+
+#TWRP config:
+DEVICE_RESOLUTION := 800x1280
+BOARD_HAS_NO_REAL_SDCARD := true
+RECOVERY_SDCARD_ON_DATA := true
+TW_NO_USB_STORAGE := true
+TW_INCLUDE_JB_CRYPTO := true
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_EXTERNAL_STORAGE_PATH := "/usb-otg"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "usb-otg"
+TW_CUSTOM_POWER_BUTTON := 107
+TW_BRIGHTNESS_PATH := /sys/devices/platform/pwm-backlight/backlight/pwm-backlight/brightness
+TW_MAX_BRIGHTNESS := 255
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+HAVE_SELINUX := true
+
+# LZMA support for ramdisk
+BOARD_CUSTOM_BOOTIMG_MK := device/asus/grouper/custombootimg.mk
