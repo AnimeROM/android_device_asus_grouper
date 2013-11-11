@@ -38,6 +38,8 @@ include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
+    device/asus/grouper/fstab.grouper:root/fstab.grouper \
+	device/asus/grouper/twrp.fstab:root/twrp.fstab \
     device/asus/grouper/ueventd.grouper.rc:root/ueventd.grouper.rc \
     device/asus/grouper/init.grouper.usb.rc:root/init.grouper.usb.rc \
     device/asus/grouper/gps.conf:system/etc/gps.conf
@@ -61,6 +63,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
 
 PRODUCT_COPY_FILES += \
+    device/asus/grouper/vold.fstab:system/etc/vold.fstab \
     device/asus/grouper/elan-touchscreen.idc:system/usr/idc/elan-touchscreen.idc \
     device/asus/grouper/raydium_ts.idc:system/usr/idc/raydium_ts.idc \
     device/asus/grouper/sensor00fn11.idc:system/usr/idc/sensor00fn11.idc \
@@ -72,6 +75,7 @@ PRODUCT_PACKAGES := \
     power.grouper \
     audio.a2dp.default \
     audio.usb.default \
+   audio.r_submix.default \
     librs_jni \
     setup_fs \
     l2ping \
@@ -101,10 +105,6 @@ PRODUCT_COPY_FILES += \
 # media codec config xml file
 PRODUCT_COPY_FILES += \
     device/asus/grouper/media_codecs.xml:system/etc/media_codecs.xml
-
-# Bluetooth config file
-PRODUCT_COPY_FILES += \
-    system/bluetooth/data/main.nonsmartphone.conf:system/etc/bluetooth/main.conf \
 
 # audio mixer paths
 PRODUCT_COPY_FILES += \
