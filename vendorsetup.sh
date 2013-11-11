@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2008 The Android Open Source Project
+# Copyright (C) 2011-2013 The XPerience Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,4 +22,5 @@
 # function: add_lunch_combo generic-eng
 
 add_lunch_combo full_grouper-userdebug
-add_lunch_combo omni_grouper-userdebug
+add_lunch_combo aosp_grouper-userdebug
+add_lunch_combo mx_grouper-userdebug
