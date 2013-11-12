@@ -1,4 +1,5 @@
 # Copyright (C) 2010 The Android Open Source Project
+# Copyright (C) 2013 The XPerience Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -60,7 +61,6 @@ ARCH_ARM_HIGH_OPTIMIZATION := true
 ## Odex by xperience
 WITH_DEXPREOPT := true 
 
-
 TARGET_BOOTLOADER_BOARD_NAME := grouper
 TARGET_NO_BOOTLOADER := true
 
@@ -92,27 +92,25 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_KERNEL_SOURCE := kernel/asus/grouper
 TARGET_KERNEL_CONFIG := cyanogenmod_grouper_defconfig
 
-
 BOARD_SEPOLICY_DIRS += \
 	device/asus/grouper/sepolicy
 
-BOARD_SEPOLICY_UNION += \
-	file_contexts \
-	genfs_contexts \
-	app.te \
-	btmacreader.te \
-	device.te \
-	drmserver.te \
-	file.te \
-	gpsd.te \
-	init_shell.te \
-	keystore.te \
-	mediaserver.te \
-	rild.te \
-	sensors_config.te \
-	surfaceflinger.te \
-	system.te \
-	zygote.te
+BOARD_SEPOLICY_UNION := \
+        file_contexts \
+        genfs_contexts \
+        app.te \
+        btmacreader.te \
+        compatibility.te \
+        device.te \
+        drmserver.te \
+        init_shell.te \
+        file.te \
+        rild.te \
+        sensors_config.te \
+        shell.te \
+        surfaceflinger.te \
+        system.te \
+        zygote.te
 
 #TWRP config:
 DEVICE_RESOLUTION := 800x1280
