@@ -24,3 +24,4 @@
 add_lunch_combo full_grouper-userdebug
 add_lunch_combo aosp_grouper-userdebug
 add_lunch_combo mx_grouper-userdebug
+add_lunch_combo anime_grouper-userdebug
