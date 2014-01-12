@@ -1,5 +1,6 @@
 # Copyright (C) 2010 The Android Open Source Project
 # Copyright (C) 2013 The XPerience Project
+# Copyright (C) 2014 The AnimeROM Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,7 +22,7 @@
 #
 
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+$(call inherit-product, vendor/Anime/config/common.mk)
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/asus/grouper/device.mk)
