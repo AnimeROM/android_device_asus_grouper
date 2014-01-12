@@ -2,7 +2,7 @@ android_device_omnirom_grouper
 ==============================
 
 
-Device configs for omnirom :)
+Device configs for AnimeROM
 
 
 to build you need download this repo in zip and uncompress in device/asus/grouper
