@@ -84,6 +84,8 @@ endif
 # Avoid the generation of ldrcc instructions
 NEED_WORKAROUND_CORTEX_A9_745320 := true
 
+TARGET_EXTRA_CFLAGS := $(call cc-ifversion, -ge, 46, $(call cc-option,-mtune=cortex-a9,$(call cc-option,-mtune=cortex-a8)) $(call cc-option,-mcpu=cortex-a9,$(call cc-option,-mcpu=cortex-a8)))
+
 BOARD_USES_GROUPER_MODULES := true
 
 # Required for CWM
@@ -110,6 +112,8 @@ BOARD_SEPOLICY_UNION := \
         shell.te \
         surfaceflinger.te \
         system.te \
+	ueventd.te \
+	system_server.te \
         zygote.te
 
 #TWRP config:
